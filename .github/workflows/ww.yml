@@ -31,7 +31,7 @@ jobs:
         cp -r zigrika build
         cd build
         sed -i '/    b.installArtifact(cfgsv)/a \    b.installArtifact(loginsv);' build.zig
-        zig build -Doptimize=ReleaseFast
+        zig build -Doptimize=ReleaseSmall
         mv zig-out/bin/*.exe ./
         7z a ..\zigrika.7z assets\ state\ *.exe
     - name: Upload
