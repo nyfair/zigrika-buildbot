@@ -30,7 +30,6 @@ jobs:
         }
         cp -r zigrika build
         cd build
-        sed -i '/    b.installArtifact(cfgsv)/a \    b.installArtifact(loginsv);' build.zig
         zig build -Doptimize=ReleaseSmall
         mv zig-out/bin/*.exe ./
         7z a ..\zigrika.7z assets\ state\ *.exe
@@ -39,6 +38,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: zigrika.7z
-        tag: 3.5beta
+        tag: 3.6beta
         overwrite: true
         file_glob: true
