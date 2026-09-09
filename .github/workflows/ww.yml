@@ -32,6 +32,8 @@ jobs:
         cd build
         zig build -Doptimize=ReleaseSmall
         mv zig-out/bin/*.exe ./
+        curl -OL https://git.xeondev.com/WavyRooms/zigrika-bindata/releases/download/3.7.0.2/BinData.zip
+        7z x BinData.zip -oassets
         7z a ..\zigrika.7z assets\ state\ *.exe
     - name: Upload
       uses: svenstaro/upload-release-action@v2
